@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>GFOJ#2056（平面曼哈顿距离最小生成树） | 名神龙二の博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="http://msler.github.io/favicon.ico?v=1583328068156">
+<link rel="stylesheet" href="http://msler.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="题目链接
+这个题就是平面曼哈顿距离最小生成树模板题，但是因为我不会平面曼哈顿距离最小生成树，所以记一下。
+首先有个结论：以(x0,y0)(x0,y0)(x0,y0)为原点作xxx轴，yyy轴，直线y=±xy=\pm xy=±x，会把平面分成..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="http://msler.github.io">
+        <img src="http://msler.github.io/images/avatar.png?v=1583328068156" class="site-logo">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      删库跑路之后留下来的。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://msler.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">GFOJ#2056（平面曼哈顿距离最小生成树）</h2>
+            <div class="post-date">2020-03-04</div>
+            
+            <div class="post-content" v-pre>
+              <p><a href="http://u.gdfzoj.com/problem/2056">题目链接</a></p>
+<p>这个题就是平面曼哈顿距离最小生成树模板题，但是因为我不会平面曼哈顿距离最小生成树，所以记一下。</p>
+<p>首先有个结论：以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mn>0</mn><mo separator="true">,</mo><mi>y</mi><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(x0,y0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">0</span><span class="mclose">)</span></span></span></span>为原点作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>轴，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>轴，直线<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mo>±</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=\pm x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">±</span><span class="mord mathdefault">x</span></span></span></span>，会把平面分成八块。</p>
+<p>每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>8</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>平面中只有离<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mn>0</mn><mo separator="true">,</mo><mi>y</mi><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(x0,y0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">0</span><span class="mclose">)</span></span></span></span>最近的点会在最小生成树中。</p>
+<p>然后因为是无向图，每个点只用连<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord mathdefault">x</span></span></span></span>上边的那一半</p>
+<p>证明直接放图。</p>
+<figure data-type="image" tabindex="1"><img src="https://images.cnblogs.com/cnblogs_com/PsychicBoom/1613945/o_200115072457QQ%E5%9B%BE%E7%89%8720200115152333.png" alt="" loading="lazy"></figure>
+<p>对于一个右上方（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>轴右边，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>上边）的区间，点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mn>0</mn><mo separator="true">,</mo><mi>y</mi><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(x0,y0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">0</span><span class="mclose">)</span></span></span></span>连边需满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>≥</mo><mi>x</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">x\geq x0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mord">0</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>−</mo><mi>y</mi><mn>0</mn><mo>+</mo><mi>x</mi><mo>−</mo><mi>x</mi><mn>0</mn><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y-y0+x-x0\geq 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>−</mo><mi>x</mi><mo>≥</mo><mi>y</mi><mn>0</mn><mo>−</mo><mi>x</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">y-x\geq y0-x0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mord">0</span></span></span></span>，且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>最小</p>
+<p>前两个条件排序维护，最后一个树状数组维护。</p>
+<p>然后你可以对区间进行旋转，让你不用分类讨论那么多，详情代码</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define For(i,x,y) for(int i=(x);i&lt;=(y);++i)
+#define Rof(i,x,y) for(int i=(x);i&gt;=(y);--i)
+#define FoR(i,x,y,z) for(int i=(x);i&lt;=(y);i+=(z))
+#define RoF(i,x,y,z) for(int i=(x);i&gt;=(y);i-=(z))
+#define Edge(x) for(int i=head[x],to=e[i].v;i;i=e[i].nxt,to=e[i].v)
+#define pii pair&lt;int,int&gt;
+#define mp make_pair
+typedef long long ll;
+const int N=4e5+5;
+using namespace std;
+
+int sz,cnt,f[N][22],head[N],n,dep[N];
+ll ans=0,mx[N][22],b[N];
+
+struct point{
+	int x,y,id;
+	bool operator &lt;(const point &amp;a)const
+	{ return a.x==x?y&lt;a.y:x&lt;a.x; }
+}p[N],tmp[N];
+
+
+namespace Bit{
+	int c[N];
+	void clr(){ For(i,1,n) c[i]=0; }
+	ll gval(int a){ return a?p[a].x+p[a].y:4e9+7; }
+	void add(int x,int y){ RoF(i,x,1,i&amp;(-i)) if(gval(c[i])&gt;gval(y)) c[i]=y; }
+	int qry(int x){ int res=0;FoR(i,x,n,i&amp;(-i)) if(gval(c[i])&lt;gval(res)) res=c[i];return res; }
+}
+
+namespace Mst{
+	int cnt=0,fa[N];
+	struct ed{
+		int u,v;ll w;
+		bool operator &lt;(const ed &amp;x)const{ return w&lt;x.w; }
+	}e[N&lt;&lt;2];
+	int find(int x){ return fa[x]==x?x:fa[x]=find(fa[x]); }
+	void add(int u,int v,ll w){ e[++cnt]=(ed){u,v,w}; }
+}
+
+struct ed{ int v,nxt;ll w; }e[N&lt;&lt;3];
+ll Abs(ll x){ return x&gt;0?x:-x; }
+ll dist(int a,int b){ return Abs(p[a].x-p[b].x)+Abs(p[a].y-p[b].y); };
+int LowB(ll x){ return lower_bound(b+1,b+sz+1,x)-b;}
+void add(int u,int v,ll w){
+	e[++cnt]=(ed){v,head[u],w},head[u]=cnt;
+	e[++cnt]=(ed){u,head[v],w},head[v]=cnt;
+}
+
+void dfs(int x){
+	For(i,1,log2(dep[x])){
+		f[x][i]=f[f[x][i-1]][i-1];
+		mx[x][i]=max(mx[x][i-1],mx[f[x][i-1]][i-1]);
+	}
+	Edge(x) if(to!=f[x][0]){
+		f[to][0]=x,mx[to][0]=e[i].w,dep[to]=dep[x]+1;
+		dfs(to);
+	}
+}
+int lca(int x,int y){
+	if(dep[x]&lt;dep[y]) swap(x,y);
+	Rof(i,20,0) if(dep[f[x][i]]&gt;=dep[y]) x=f[x][i];
+	if(x==y) return x;
+	Rof(i,20,0) if(f[x][i]!=f[y][i]) x=f[x][i],y=f[y][i];
+	return f[x][0];
+}
+ll gdis(int x,int y){
+	ll cnm=-1;if(y==0) return 0;
+	Rof(i,20,0) if((y&gt;&gt;i)&amp;1) cnm=max(mx[x][i],cnm),x=f[x][i];
+	return cnm;
+}
+
+int main(){
+	int q,x,y;ll cnm=0;
+	scanf(&quot;%d&quot;,&amp;n);
+	For(i,1,n) scanf(&quot;%d%d&quot;,&amp;p[i].x,&amp;p[i].y),p[i].id=i,tmp[i]=p[i];
+	
+	For(d,1,4){
+        //reverse
+		if(d%2==0) For(i,1,n) swap(p[i].x,p[i].y);
+		else if(d==3) For(i,1,n) p[i].x=-p[i].x;
+		sort(p+1,p+n+1);
+		
+		For(i,1,n) b[i]=1ll*p[i].y-p[i].x;
+		sort(b+1,b+n+1);sz=unique(b+1,b+n+1)-b-1;
+		
+		Bit::clr();
+		Rof(i,n,1){
+			int pos=LowB(1ll*p[i].y-p[i].x),to=Bit::qry(pos);
+			if(to) Mst::add(p[i].id,p[to].id,dist(i,to));
+			Bit::add(pos,i);
+		}		
+	}
+	
+	For(i,1,n) Mst::fa[i]=i;
+	sort(Mst::e+1,Mst::e+Mst::cnt+1);int tot=0;
+	For(i,1,Mst::cnt){
+		if(tot==n-1) break;
+		int u=Mst::find(Mst::e[i].u),v=Mst::find(Mst::e[i].v);
+		if(u==v) continue; ans+=Mst::e[i].w,tot++;
+		if(u&gt;v) swap(u,v); Mst::fa[v]=u;
+		add(Mst::e[i].u,Mst::e[i].v,Mst::e[i].w);
+	}	
+	
+	For(i,1,n) p[i]=tmp[i];
+	memset(mx,0,sizeof(mx));
+	dep[1]=1,dfs(1);
+	scanf(&quot;%d&quot;,&amp;q);
+	while(q--){
+		scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+		int z=lca(x,y);
+		if(x==y) cnm=0;
+		else cnm=max(gdis(x,dep[x]-dep[z]),gdis(y,dep[y]-dep[z]));
+		printf(&quot;%lld\n&quot;,ans-cnm+dist(x,y));
+	}
+}
+</code></pre>
+<p><strong>扩展：</strong><br>
+平面曼哈顿距离最大生成树可以用 Boruvka 算法求，因为找曼哈顿距离最大的点可以直接线段树维护绝对值的四种拆法。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://msler.github.io/post/mo-dui-bitset-luo-gu-p4688/">
+                  <h3 class="post-title">
+                    【莫队+bitset】洛谷P4688
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
