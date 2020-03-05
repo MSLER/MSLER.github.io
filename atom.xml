@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://msler.coding.me</id>
+    <id>https://msler.gitee.io</id>
     <title>名神龙二の博客</title>
-    <updated>2020-03-05T08:48:56.521Z</updated>
+    <updated>2020-03-05T08:52:35.668Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://msler.coding.me"/>
-    <link rel="self" href="http://msler.coding.me/atom.xml"/>
+    <link rel="alternate" href="https://msler.gitee.io"/>
+    <link rel="self" href="https://msler.gitee.io/atom.xml"/>
     <subtitle>删库跑路之后留下来的。</subtitle>
-    <logo>http://msler.coding.me/images/avatar.png</logo>
-    <icon>http://msler.coding.me/favicon.ico</icon>
+    <logo>https://msler.gitee.io/images/avatar.png</logo>
+    <icon>https://msler.gitee.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 名神龙二の博客</rights>
     <entry>
         <title type="html"><![CDATA[【性质分析+数位DP】CF750G New Year and Binary Tree Paths]]></title>
-        <id>http://msler.coding.me/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/</id>
-        <link href="http://msler.coding.me/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/">
+        <id>https://msler.gitee.io/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/</id>
+        <link href="https://msler.gitee.io/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/">
         </link>
         <updated>2020-03-04T12:43:33.000Z</updated>
         <content type="html"><![CDATA[<p><strong>规律找完，不会DP，光荣爆零，身败名裂</strong></p>
@@ -86,8 +86,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[一些很妙的idea/被教做人的trick]]></title>
-        <id>http://msler.coding.me/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/</id>
-        <link href="http://msler.coding.me/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/">
+        <id>https://msler.gitee.io/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/</id>
+        <link href="https://msler.gitee.io/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/">
         </link>
         <updated>2020-03-04T12:41:23.000Z</updated>
         <content type="html"><![CDATA[<h1 id="idea">idea</h1>
@@ -148,8 +148,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[GFOJ#2056（平面曼哈顿距离最小生成树）]]></title>
-        <id>http://msler.coding.me/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/</id>
-        <link href="http://msler.coding.me/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/">
+        <id>https://msler.gitee.io/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/</id>
+        <link href="https://msler.gitee.io/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/">
         </link>
         <updated>2020-03-04T12:40:46.000Z</updated>
         <content type="html"><![CDATA[<p><a href="http://u.gdfzoj.com/problem/2056">题目链接</a></p>
@@ -285,8 +285,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[【莫队+bitset】洛谷P4688]]></title>
-        <id>http://msler.coding.me/post/mo-dui-bitset-luo-gu-p4688/</id>
-        <link href="http://msler.coding.me/post/mo-dui-bitset-luo-gu-p4688/">
+        <id>https://msler.gitee.io/post/mo-dui-bitset-luo-gu-p4688/</id>
+        <link href="https://msler.gitee.io/post/mo-dui-bitset-luo-gu-p4688/">
         </link>
         <updated>2020-03-04T12:39:54.000Z</updated>
         <content type="html"><![CDATA[<p>刷点素晴日的题 <s>其实是因为父母在家没法玩素晴日</s></p>
