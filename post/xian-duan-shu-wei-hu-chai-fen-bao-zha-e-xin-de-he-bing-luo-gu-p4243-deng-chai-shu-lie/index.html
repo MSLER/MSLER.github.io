@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>【线段树维护差分+爆炸恶心的合并】洛谷P4243 等差数列 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583480037388">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583480037388" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">【线段树维护差分+爆炸恶心的合并】洛谷P4243 等差数列</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p><a href="https://www.luogu.org/problemnew/show/P4243">题面</a></p>
+<p>首先感谢<a href="https://www.cnblogs.com/cjyyb/p/8557066.html">这篇题解</a>，是思路来源</p>
+<hr>
+<p>看到等差数列，就会想到差分，又有区间加，很容易想到线段树维护差分。再注意点细节，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>操作完美解决<br>
+然后就是爆炸恶心的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>操作，之前看一堆题解的解释都不怎么明白，就自己脑补+看上面那篇题解乱搞出了个相对合理点的解释……<br>
+用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi mathvariant="normal">/</mi><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn><mi mathvariant="normal">/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">0/1/2/3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mord">/</span><span class="mord">1</span><span class="mord">/</span><span class="mord">2</span><span class="mord">/</span><span class="mord">3</span></span></span></span>分别表示一个差分区间统计答案时，是否跨越原区间左右端点。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>[</mo><mn>0</mn><mi mathvariant="normal">/</mi><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn><mi mathvariant="normal">/</mi><mn>3</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">s[0/1/2/3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">0</span><span class="mord">/</span><span class="mord">1</span><span class="mord">/</span><span class="mord">2</span><span class="mord">/</span><span class="mord">3</span><span class="mclose">]</span></span></span></span>分别表示每个状态的最少可以划分出来的等差数列个数。<br>
+合并方式如下：</p>
+<pre><code class="language-cpp">/*定义差分b[i]=a[i+1]-a[i]
+假设要查询区间[S,T]，对应到差分数组实际查询的是区间[S,T-1]
+所以一个节点如果在差分数组上维护的区间是[a,b],在原数组上维护的实际上是区间[a,b+1]*/
+
+//s[0]表示原数组中区间为(S,T)的答案
+//s[1]表示原数组中区间为(S,T]的答案
+//s[2]表示原数组中区间为[S,T)的答案
+//s[3]表示原数组中区间为[S,T]的答案
+
+s[0]= min(s[1]+ s[2]- ( vr==Y.vl), min(s[0]+ s[2], s[1]+s[0] ) );
+
+s[1]= min(s[1]+ Y.s[3]- ( vr==Y.vl), min(s[1]+ s[1], s[0]+s[3] ) );
+
+s[2]= min(s[3]+ s[2]- ( vr==Y.vl), min(s[2]+ s[2], s[3]+s[0] ) );
+
+s[3]= min(s[3]+ s[3]- ( vr==Y.vl), min(s[3]+ s[1], s[2]+s[3] ) );
+
+</code></pre>
+<p>输出时直接输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>[</mo><mn>3</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">s[3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">3</span><span class="mclose">]</span></span></span></span>就OK了</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi mathvariant="normal">.</mi><mi>s</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">p.s.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord">.</span><span class="mord mathdefault">s</span><span class="mord">.</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n==1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>时不用建树,否则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">RE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span></p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define N 100005
+using namespace std;
+
+int a[N],n;
+
+#define bas int l,int r,int o
+#define lson l,mid,o&lt;&lt;1
+#define rson mid+1,r,o&lt;&lt;1|1
+
+struct node{
+    int s[4];
+	long long vl,vr;
+    node operator +(const node &amp;Y)const{
+        node Z;
+        Z.vl=vl,Z.vr=Y.vr; 
+        Z.s[0]= min(s[1]+ Y.s[2]- ( vr==Y.vl), min(s[0]+ Y.s[2], s[1]+Y.s[0] ) );
+        Z.s[1]= min(s[1]+ Y.s[3]- ( vr==Y.vl), min(s[1]+ Y.s[1], s[0]+Y.s[3] ) );
+        Z.s[2]= min(s[3]+ Y.s[2]- ( vr==Y.vl), min(s[2]+ Y.s[2], s[3]+Y.s[0] ) );
+        Z.s[3]= min(s[3]+ Y.s[3]- ( vr==Y.vl), min(s[3]+ Y.s[1], s[2]+Y.s[3] ) );
+        return Z; 
+    }
+};
+struct qwq{
+    long long tag[N&lt;&lt;2];
+    node t[N&lt;&lt;2]; 
+    void pushdown(int o){
+        t[o&lt;&lt;1].vl+= tag[o], t[o&lt;&lt;1].vr+= tag[o];
+        t[o&lt;&lt;1|1].vl+= tag[o], t[o&lt;&lt;1|1].vr+= tag[o];
+        tag[o&lt;&lt;1]+= tag[o], tag[o&lt;&lt;1|1]+= tag[o]; 
+        tag[o]=0;
+    }
+    void build(bas){
+    	tag[o]=0;
+        if(l==r){
+            t[o].vl= t[o].vr= a[l];
+            t[o].s[1]= t[o].s[2]= t[o].s[3]= 1, t[o].s[0]=0;//两个数时和一个数时等差数列数量都是1
+            return;
+        }
+        int mid=(l+r)&gt;&gt;1;
+        build(lson),build(rson);
+        t[o]= t[o&lt;&lt;1]+ t[o&lt;&lt;1|1];
+    }
+    void update(bas,int L,int R,long long x){
+        if(L&lt;=l &amp;&amp; r&lt;=R){
+            t[o].vl+= x, t[o].vr+= x;
+            tag[o]+= x;
+            return;
+        }
+        if(tag[o]) pushdown(o);
+        int mid= (l+r)&gt;&gt;1;
+        if(L&lt;= mid) update(lson,L,R,x);
+        if(R&gt; mid) update(rson,L,R,x);
+        t[o]= t[o&lt;&lt;1]+ t[o&lt;&lt;1|1];        
+    }
+    node query(bas,int L,int R){ 
+        if(L&lt;= l &amp;&amp; r&lt;= R) return t[o];
+        if(tag[o]) pushdown(o);
+        int mid= (l+r)&gt;&gt;1;
+        if(R&lt;=mid) return query(lson,L,R);
+		else{
+			if(L&gt;mid) return query(rson,L,R);
+			else return query(lson,L,R)+query(rson,L,R);
+		} 	
+    }	
+}T;
+
+int main(){
+    int q,s,t,c,d,ans,i;
+    char op;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i=1;i&lt;=n;++i) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=1;i&lt;n;++i) a[i]=a[i+1]-a[i];
+    if(n!=1) T.build(1,n-1,1);
+    scanf(&quot;%d&quot;,&amp;q);
+    while(q--){
+        scanf(&quot;\n%c&quot;,&amp;op);
+        if(op=='A'){
+            scanf(&quot;%d%d%d%d&quot;,&amp;s,&amp;t,&amp;c,&amp;d);
+            if(s!=1) T.update(1,n-1,1,s-1,s-1,c);
+            if(t!=n) T.update(1,n-1,1,t,t,1ll*d*s-1ll*d*t-c); 
+            if(s!=t) T.update(1,n-1,1,s,t-1,d);
+        } else{
+            scanf(&quot;%d%d&quot;,&amp;s,&amp;t);
+            if(t- s+ 1==1) ans=1; 
+            else{
+                node res=T.query(1,n-1,1,s,t-1);
+                ans=min((t-s+2)/2,res.s[3]);
+            }
+            printf(&quot;%d\n&quot;,ans); 
+        }
+    }
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-hou-zhui-shu-zu/">
+              <h3 class="post-title">
+                下一篇：【学习笔记】后缀数组
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
