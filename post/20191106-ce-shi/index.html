@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>20191106测试 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583476735072">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583476735072" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">20191106测试</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p><a href="http://u.gdfzoj.com/contest/21">题目链接</a></p>
+<h2 id="t1">T1</h2>
+<p>考场上想到了前后缀关系，但是连了一个哈密顿回路出来，然后众所周知（？）找哈密顿回路的复杂度是指数级的……</p>
+<p>然后PB给出了一个做法：把一个串看成一条边，然后对于一个串，把它长为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的前缀向长为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的后缀连边，跑一个欧拉回路/欧拉路径即可</p>
+<p><a href="http://u.gdfzoj.com/submission/2889">代码</a></p>
+<h2 id="t2">T2</h2>
+<p>PB说是个原题，可是我没做……</p>
+<p>树的情况很简单，讨论一下节点深度奇偶性即可</p>
+<p>二分图有个结论：只有一定在最大匹配上的点是先手必胜点</p>
+<p>先手可以一直延着匹配边走，这样子只能逼迫后手走非匹配边，然后这样后手就GG乐……</p>
+<p>如果先手不在这种点上，它只能走到一个匹配点，然后对后手就是上面的情况了</p>
+<p>那如何求一个二分图的“一定在最大匹配上的点”呢？先对这个图求个最大匹配，然后从一个非匹配点出发，遍历一遍，路径上的点全是非匹配点</p>
+<p><a href="http://u.gdfzoj.com/submission/2929">代码</a></p>
+<h2 id="t3">T3</h2>
+<p>考场猜了个结论：按权重分配，然而手算没乘n光荣GG</p>
+<p>其实这个结论是对的</p>
+<p>最后答案是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><msup><mi>n</mi><mi>m</mi></msup><mo>∏</mo><msub><mi>x</mi><mi>i</mi></msub><mo>!</mo></mrow><mrow><mi>m</mi><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n^m\prod x_i!}{m!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3550069999999999em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0100069999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485007em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7385428571428572em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mop op-symbol small-op mtight" style="position:relative;top:-0.0000050000000000050004em;">∏</span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><a href="http://u.gdfzoj.com/submission/2950">代码</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-zui-xiao-hui-wen-fen-jie/">
+              <h3 class="post-title">
+                下一篇：【学习笔记】最小回文分解
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
