@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>正睿OI 2019 D4T3 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583478359338">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583478359338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">正睿OI 2019 D4T3</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p><a href="http://zhengruioi.com/problem/800">题目链接</a><br>
+题目大意：有一个n个点m条边的无向图，求这个图的完备匹配个数。</p>
+<hr>
+<h2 id="瞎bb">瞎BB</h2>
+<p>考场降智严重，写了爆搜走人，完全没有想到状压和容斥去 <s>容斥前一天还做过强化版</s><br>
+话说集合幂级数是什么啊QAQ</p>
+<hr>
+<h2 id="正解">正解</h2>
+<p>考虑把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>i</mi></mrow><annotation encoding="application/x-tex">2i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">i</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>分成一组（没错这就是最神仙的地方），这样一共可以分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mord">2</span></span></span></span>组，在一组点中间连一条虚边，然后再找一个完备匹配，在匹配点之间连实边。</p>
+<p>可以发现实边和虚边会把点连成一个环，于是一张图就被分成了好几个环。</p>
+<p>对于一个环我们可以删掉一个点，使那个环变为一条链，显然对于一个环，删掉的点和链的样子是唯一对应的。</p>
+<p>所以可以设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>为删掉<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>号点后，边集为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的链有多少条。转移时枚举一条虚边，分类讨论转移过去即可。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">g[j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>为边集为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的环的个数，dp时统计一下就行了。</p>
+<p>最后统计答案要枚举子集、</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+
+int qwq;
+bool e[34][34];
+ll dp[34][1&lt;&lt;17],g[1&lt;&lt;17],ans[1&lt;&lt;17];
+
+void init()
+{
+	int i,j,k,s;
+	for(i=0;i&lt;qwq;++i){
+		int a=i&lt;&lt;1,b=(i&lt;&lt;1)|1;
+		for(j=0;j&lt;=b;++j)
+			for(s=0;s&lt;(1&lt;&lt;i);++s) dp[j][s]=0;
+		dp[a][0]=1;
+		for(s=0;s&lt;(1&lt;&lt;i);++s)
+			for(j=0;j&lt;=b;++j)
+				if(dp[j][s]){
+					for(k=0;k&lt;i;++k)
+						if(!((s&gt;&gt;k)&amp;1)){
+							int x=k&lt;&lt;1,y=k&lt;&lt;1|1;
+							if(e[x][j]) dp[y][s|(1&lt;&lt;k)]+=dp[j][s];
+							if(e[y][j])	dp[x][s|(1&lt;&lt;k)]+=dp[j][s];					
+						}
+				}
+		for(s=0;s&lt;(1&lt;&lt;i);++s)
+			for(j=0;j&lt;=b;++j) if(e[b][j]) g[s|(1&lt;&lt;i)]+=dp[j][s];
+	}
+}
+
+void solve()
+{
+	int s,S=1&lt;&lt;qwq,i;
+	for(s=0;s&lt;S;++s){
+		int x=s^(s&amp;-s);
+		for(i=x;i;i=(i-1)&amp;x){
+			ans[s]+=ans[i]*g[s^i];
+		} ans[s]+=g[s];	
+	} printf(&quot;%lld\n&quot;,ans[S-1]);
+}
+
+int main()
+{
+	int n,m,i,u,v;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	qwq=n/2;
+	for(i=1;i&lt;=m;++i){
+		scanf(&quot;%d%d&quot;,&amp;u,&amp;v);u--,v--;
+		e[u][v]=e[v][u]=1;
+	}
+	init();
+	solve();
+}
+
+
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d7t1/">
+              <h3 class="post-title">
+                下一篇：正睿OI 2019 D7T1
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

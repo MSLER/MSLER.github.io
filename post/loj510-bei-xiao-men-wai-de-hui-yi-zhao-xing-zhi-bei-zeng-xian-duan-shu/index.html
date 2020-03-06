@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>【找性质+倍增+线段树】LOJ#510 北校门外的回忆 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583478359338">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583478359338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">【找性质+倍增+线段树】LOJ#510 北校门外的回忆</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <h5 id=""></h5>
+<p><s>这题一场模拟赛我们出了弱化版（n&lt;=1e6），抄题面给的程序能拿到71分的好成绩</s><br>
+<s>其实后面的29分是加了几个1e9的数据卡人</s><br>
+<s>这糟老头子真是坏得很</s><br>
+<s>正解我们机房看了三天</s></p>
+<p>在这里感谢<a href="https://blog.csdn.net/qq_33229466/article/details/80823582">这篇题解</a>的作者，代码解释得很清晰~</p>
+<p>经过打表观察，可以发现：当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">1\le x \le k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>时</p>
+<blockquote>
+<p>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 为奇数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>∗</mo><msup><mn>2</mn><mi>y</mi></msup></mrow><annotation encoding="application/x-tex">x*2^{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>o</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">mod</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的值成环</p>
+<p>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 为偶数，质因数分解<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，如果所含因子<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>的次数大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>所含因子<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>的次数，那<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>∗</mo><msup><mn>2</mn><mi>y</mi></msup></mrow><annotation encoding="application/x-tex">x*2^{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>o</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">mod</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的值也成环</p>
+</blockquote>
+<p><s>然而考试时永远发现不了</s></p>
+<p>于是可以对每条链开一棵动态开点线段树，再开一棵线段树处理不在单点上的点，一起用来模拟题目所给的树状数组（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">N\le10^{9}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>，直接开树状树组会炸）。</p>
+<p>于是可以这么做修改操作：</p>
+<p>对于不在链上的点，最多只会跳<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mn>2</mn><mi>k</mi></msubsup><mo>∗</mo><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mi>k</mi><mi>n</mi></msubsup><mo>=</mo><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mn>2</mn><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">log_{2}^{k}*log_{k}^{n}=log_{2}^{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.097216em;vertical-align:-0.24810799999999997em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.4518920000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9775479999999999em;vertical-align:-0.2831079999999999em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4168920000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831079999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.9425479999999999em;vertical-align:-0.24810799999999997em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span>次就会跳到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>之外或跳到链上，暴力更新就完事了。</p>
+<p>对于在链上的点，我们可以找到这条链的链头(找链头的方法详见代码)，求出这个点到链头的距离<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">dis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span>，区间更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">dis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span>和链尾之间的点。</p>
+<p>查询也差不多的。</p>
+<p>更详细的解释见代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define N 200010
+using namespace std;
+
+int k;
+inline void rd(int &amp;x){
+	int y=0,f=1;char c=getchar();
+	while(c&lt;'0' || c&gt;'9' ){if(c=='-')f=-1;c=getchar();}
+	while(c&gt;='0' &amp;&amp; c&lt;='9')y=y*10+(c^48),c=getchar();
+	x=y*f;
+}
+
+int num[N],jw[N],go[N][20],to[N][20],pr[N],a[N],fr,dis,u;
+bool vis[N];
+
+inline int lowbit(int x){
+	while(x%k==0) x/=k;
+	return x%k;
+}
+inline int lowbitv(int x){
+    register int lg=0;
+    while (x%k==0) x/=k,lg++;
+    x%=k;
+    while (lg) x*=k,lg--;
+    return x;
+}
+void init()//预处理 
+{
+	//jw[i]:i所在链上的进位次数 
+	register int cnt,i,j,w,l;
+	for(i=1;i&lt;=k;++i) for(j=i;j%2==0;j/=2,++pr[i]);
+	for(i=1;i&lt;k;++i){
+		cnt=w=0;
+		if(vis[i] || pr[i]&lt;pr[k]) continue;
+		int x=i*2%k;a[++cnt]=i,vis[i]=1;
+		while(x!=i) a[++cnt]=x,vis[x]=1,x=x*2%k;
+		for(j=1;j&lt;=cnt;++j) w+=(a[j]*2&gt;=k);
+		for(j=1;j&lt;=cnt;++j){
+			jw[a[j]]=w,num[a[j]]=cnt;
+			(j==1)?x=cnt:x=j-1;
+			to[a[j]][0]=a[x];
+			go[a[j]][0]=(a[x]*2&gt;=k);
+		}
+		//to[i][j]:i向前跳j步跳到的点
+		//go[i][j]:i向前跳j步的进位次数 		
+		for(j=1;j&lt;=18;++j)
+			for(l=1;l&lt;=cnt;++l){
+				to[a[l]][j]=to[to[a[l]][j-1] ][j-1];
+				go[a[l]][j]=go[a[l]][j-1]+go[to[a[l]][j-1] ][j-1];
+			} 
+	}	
+} 
+void GetF(int x)//求链头 
+{
+	int lg=0;
+	while(x%k==0) x/=k,lg++;
+	fr=lowbit(x),dis=1;int u=(x-fr)/k,i;//u:x的进位次数 
+	//dis=跳的环数*环的长度+剩余长度（没跳完整个环） 
+	dis+=u/jw[fr]*num[fr];
+	u%=jw[fr];
+	for(i=18;i&gt;=0;--i){
+		if(go[fr][i]&lt;=u){
+			u-=go[fr][i];
+			dis+=(1&lt;&lt;i);
+			fr=to[fr][i];
+		}
+	}
+	while(lg) fr*=k,lg--;//由lowbit(x)的链头还原回去x的链头 
+}
+
+#define mid ((l+r)&gt;&gt;1)
+int root1,root2,root3;
+struct tr{ int ls,rs,x; };
+struct qwq{ 
+	tr t[N*60];
+	int sz=0;
+	void update(int &amp;o,int l,int r,int L,int R,int v){ 
+		if(!o) o=++sz;
+		if(L&lt;=l &amp;&amp; r&lt;=R){
+			t[o].x^=v;
+			return;
+		}
+		if(L&lt;=mid) update(t[o].ls,l,mid,L,R,v);
+		if(R&gt;mid) update(t[o].rs,mid+1,r,L,R,v);
+	}
+	int query(int o,int l,int r,int x){
+		if(l==r || !o) return t[o].x;
+		if(x&lt;=mid) return t[o].x^query(t[o].ls,l,mid,x);//不用pushup的原因（异或只用异或一遍） 
+		else return t[o].x^query(t[o].rs,mid+1,r,x); 
+	}
+} Point,Chain,Front;
+//Point:不在链上的点
+//Chain:链上的点的更新（以链头的点值为根）
+//Front:链头在Chain上的位置
+int main()
+{
+	int n,q,op,x,v,ans;
+	rd(n),rd(q),rd(k);
+	init();
+	while(q--){
+		rd(op),rd(x);
+		if(op==1){
+			rd(v);
+			while(x&lt;=n &amp;&amp; pr[lowbit(x)]&lt;pr[k]){
+				Point.update(root2,1,n,x,x,v);
+				x+=lowbitv(x);
+			} //暴力跳 
+			if(x&gt;n) continue;
+			GetF(x);
+			root1=Front.query(root3,1,n,fr);
+			int tmp=root1;Chain.update(root1,1,n,dis,n,v);
+			//Chain相当于重构了编号,比如说链头为x,则线段树里编号为2的元素实际上是原树状数组编号为x+lowbit(x)的元素 
+			if(!tmp) Front.update(root3,1,n,fr,fr,root1); 
+		} else{
+			ans=0;
+			while(x){
+				if(pr[lowbit(x)]&lt;pr[k]) ans^=Point.query(root2,1,n,x);
+				else{
+					GetF(x);
+					root1=Front.query(root3,1,n,fr);
+					if(root1) ans^=Chain.query(root1,1,n,dis);
+				}
+				x-=lowbitv(x); 
+			}
+			printf(&quot;%d\n&quot;,ans);
+		} 
+	}
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/sb-cuo-wu-he-ji/">
+              <h3 class="post-title">
+                下一篇：SB错误合集
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

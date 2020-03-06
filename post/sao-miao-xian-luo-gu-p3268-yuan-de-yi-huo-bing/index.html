@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>【扫描线】洛谷P3268 圆的异或并 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583478359338">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583478359338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">【扫描线】洛谷P3268 圆的异或并</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p>扫描线还不是很熟啊……不管是从想的方面还是代码实现的方面……</p>
+<hr>
+<p>关于这题，考虑一条平行于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>轴的扫描线从左到右扫描每一个圆，因为只有相离和内含两种关系，只用在切线处扫描即可</p>
+<p>我们设上半圆为1，下半圆为-1，当前遍历到的圆为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>。然后把每个圆弧按照和这条扫描线的交点的纵坐标从小到大排序，然后找每个下半圆的前驱，设这个前驱对应的圆为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>。</p>
+<p>如果这个前驱为上半圆，即这两个圆相离，状态相同</p>
+<p>如果这个前驱为下半圆，即圆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>内含于圆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>，状态相反</p>
+<p>嘛……不理解的话直接上图好了,紫圆为圆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，紫点为圆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>的前驱，显然紫点对应的是个上半圆，状态相同</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/04/18/5cb832b82f300.png" alt="" loading="lazy"></figure>
+<p>维护前驱可以用set维护，扫描到右切线时记得要删除半圆</p>
+<p>代码</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define N 200010
+#define ll long long
+#define rep(i,x,y) for(i=(x);i&lt;=(y);++i)
+using namespace std;
+
+const double eps=1e-9;
+int x[N],y[N],r[N],nx,use[N];
+
+struct point{
+	int id,f;
+	int X(){ return x[id]-f*r[id]; }
+	friend bool operator &lt;(point a,point b){ return (a.X()==b.X())?r[a.id]&lt;r[b.id]:a.X()&lt;b.X(); }	
+}p[N&lt;&lt;1];
+struct pos{
+	int id,f;
+	double cycY(){
+		double tmp=sqrt(1.0*r[id]*r[id]-1.0*(nx-x[id])*(nx-x[id]));
+		return 1.0*y[id]+1.0*f*tmp;
+	}
+	friend bool operator &lt;(pos a,pos b){ return (fabs(a.cycY()-b.cycY())&lt;eps)?a.f&lt;b.f:a.cycY()&lt;b.cycY();  }
+};
+set&lt;pos&gt;qwq;
+set&lt;pos&gt;::iterator it;
+
+int main(){
+	int n,i;
+	ll ans=0;
+	scanf(&quot;%d&quot;,&amp;n);
+	rep(i,1,n){
+		scanf(&quot;%d%d%d&quot;,&amp;x[i],&amp;y[i],&amp;r[i]);
+		p[i]=(point){i,1},p[i+n]=(point){i,-1};
+	}
+	sort(p+1,p+2*n+1);
+	rep(i,1,2*n){
+		nx=p[i].X();
+		if(p[i].f==1){
+			it=(qwq.insert((pos){p[i].id,1})).first;
+			if(it==qwq.begin()) use[p[i].id]=1;
+			else{
+				it--;
+				if((*it).f==1) use[p[i].id]=use[(*it).id];
+				else use[p[i].id]=-use[(*it).id];
+			}
+			qwq.insert((pos){p[i].id,-1});
+		} else{
+			qwq.erase((pos){p[i].id,1});
+			qwq.erase((pos){p[i].id,-1});
+		}
+	}
+	rep(i,1,n) ans+=1ll*use[i]*r[i]*r[i];
+	printf(&quot;%lld\n&quot;,ans);
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/bo-yi-lun-agc002e-candy-piles/">
+              <h3 class="post-title">
+                下一篇：【博弈论】AGC002E Candy Piles
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

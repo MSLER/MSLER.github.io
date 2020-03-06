@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>SB错误合集 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583478359338">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583478359338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">SB错误合集</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p>这些题都是没ac调了好久发现是sb错误的题……、</p>
+<h1 id="想清楚再写题">想清楚再写题！！！</h1>
+<hr>
+<h1 id="2019418">2019.4.18</h1>
+<h2 id="洛谷p5155-usaco18decbalance-beam">洛谷P5155 [USACO18DEC]Balance Beam</h2>
+<p>转移方程<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo>[</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>∗</mo><mo>(</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>i</mi><mo>)</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>∗</mo><mo>(</mo><mi>i</mi><mo>−</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo><mo>)</mo><mi mathvariant="normal">/</mi><mo>(</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">(a[l[i]]*(r[i]-i)+a[r[i]]*(i-l[i]))/(r[i]-l[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span>写成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo>[</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>∗</mo><mo>(</mo><mi>i</mi><mo>−</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>∗</mo><mo>(</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>i</mi><mo>)</mo><mo>)</mo><mi mathvariant="normal">/</mi><mo>(</mo><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>l</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">(a[l[i]]*(i-l[i])+a[r[i]]*(r[i]-i))/(r[i]-l[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
+100pt-&gt;9pt</p>
+<h2 id="洛谷p5289-十二省联考2019皮配">洛谷P5289 [十二省联考2019]皮配</h2>
+<p>背包有限制的学校时，第四维边界为了图省事直接写的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">D0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord">0</span></span></span></span>（正确写法要计算出来有限制学校的人数之和），疯狂T<br>
+100pt-&gt;90pt</p>
+<h2 id="洛谷p4598-heoi2012akai-的数学作业">洛谷P4598 [HEOI2012]Akai 的数学作业</h2>
+<p>要舍掉系数为0的低次项，直到出现第一个系数不为0的项，而不是傻傻的只加个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的解或直接把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">2*10^7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span></span></span>个数push进去<br>
+100pt-&gt;30pt-&gt;20pt</p>
+<h2 id="洛谷p3321-sdoi2015序列统计">洛谷P3321 [SDOI2015]序列统计</h2>
+<p>没有评论里的好心人又不知道要调多久……<br>
+要舍掉所有的0<br>
+100pt-&gt;20pt</p>
+<h1 id="2019427">2019.4.27</h1>
+<p>##洛谷P2336 [SCOI2012]喵星球上的点名<br>
+基数排序最后一句，是从大到小枚举排名得到新一轮的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">sa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span></span></span></span>，不是从小到大<br>
+100pt-&gt;19pt</p>
+<h1 id="2019528">2019.5.28</h1>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mi>a</mi><mi>n</mi><mi>s</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">maxans\in [0,n-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>，初值赋0<br>
+然而要赋-1</p>
+<h1 id="2019628">2019.6.28</h1>
+<p>memset(tmp,0,sizeof(0));</p>
+<p>void qpow(int x){<br>
+……<br>
+}<br>
+int main(){<br>
+long long n;<br>
+……<br>
+qpow(n);<br>
+}</p>
+<p>int minus(int x,int y){x-=y;}<br>
+int main(){<br>
+……<br>
+minus(a,b);<br>
+}</p>
+<h1 id="201999">2019.9.9</h1>
+<p>多次bfs没清队列，50-&gt;0<br>
+<s>加上这50我就rank10+了</s></p>
+<h1 id="2019105">2019.10.5</h1>
+<p>写auto写多了……忘了vector最后一个元素的下标是size-1……</p>
+<h1 id="20191031">2019.10.31</h1>
+<p>这是一个错掉的启发式并查集，它会T掉</p>
+<pre><code class="language-cpp">void merge(int x,int y){
+	int u=find(x),v=find(y);
+	if(u==v) return;
+	if(dep[u]&lt;dep[v]) swap(u,v);
+	st[++top]=(qwq){u,v,dep[u]};
+	fa[v]=u;if(dep[u]==dep[v])dep[v]++;//!!!这里是u
+}
+</code></pre>
+<p>其实还是没理解的问题……dep[x]记的是以x为根的儿子的最大深度</p>
+<p>#2019.10.31<br>
+开高维数组时，要把小的维开到前面<br>
+血的教训，100卡成80……</p>
+<h1 id="csp前写的一些题的一些sb错误">CSP前写的一些题的一些SB错误</h1>
+<ul>
+<li>
+<p>【模板】割点<br>
+输出格式是输空格，我输了换行，爆了3发<br>
+还是要多读题，尤其输入输出格式</p>
+</li>
+<li>
+<p>某次校内测试<br>
+读入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo separator="true">,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">k,n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span>我读的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n,k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span><br>
+能继续化成形式幂级数的式子就不要爆上NTT<br>
+100-&gt;5</p>
+</li>
+<li>
+<p>NOIP2012疫情控制<br>
+倍增求距离写挂+线段树覆盖子树右边界写成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>f</mi><mi>n</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>+</mo><mi>s</mi><mi>z</mi><mo>[</mo><mi>x</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dfn[x]+sz[x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">n</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span></span></span></span></p>
+</li>
+<li>
+<p>NOIP2016天天爱跑步<br>
+线段树查询的区间没平移</p>
+</li>
+</ul>
+<h1 id="2020112">2020.1.12</h1>
+<p>线段树区间取max的正确姿势</p>
+<pre><code class="language-cpp">	void upd(int l,int r,int o,int L,int R,ll x){
+		mx[o]=max(mx[o],x);
+		if(l==L &amp;&amp; r==R) return tag[o]=max(tag[o],x),void();
+		int mid=(l+r)&gt;&gt;1;
+		if(R&lt;=mid) upd(lson,L,R,x);
+		else if(L&gt;mid) upd(rson,L,R,x);
+		else upd(lson,L,mid,x),upd(rson,mid+1,R,x);
+	}
+	ll qry(int l,int r,int o,int L){
+		if(!L) return -1e18;
+		if(l==r) return max(mx[o],tag[o]);
+		int mid=(l+r)&gt;&gt;1;
+		if(L&lt;=mid) return max(tag[o],qry(lson,L));
+		else return max(tag[o],qry(rson,L));
+	}
+</code></pre>
+<h1 id="2020115">2020.1.15</h1>
+<p>二维偏序，我树状数组维护的和sort的是同一维</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/hdu4625-jzptreesi-te-lin-shu-dp/">
+              <h3 class="post-title">
+                下一篇：hdu4625 JZPTREE（斯特林数+dp）
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>正睿OI 2019 D3T3 | 名神龙二の博客</title>
+<meta name="description" content="删库跑路之后留下来的。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583478359338">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://clf02z.coding-pages.com">
+        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583478359338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://clf02z.coding-pages.com">
+        <h1 class="site-title">名神龙二の博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">正睿OI 2019 D3T3</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+          </div>
+          <div class="post-content">
+            <p><a href="http://zhengruioi.com/contest/337/problem/796">题目链接</a></p>
+<h2 id="瞎bb">瞎BB</h2>
+<p>没啥好说，毕竟我是真的菜，根本没往线性基那方向想。<br>
+双倍经验：HAOI2018 反色游戏</p>
+<h2 id="正解">正解</h2>
+<p>很容易想到这题要对每个区间单独算贡献。</p>
+<p><s>之后我就不会了。</s></p>
+<p>考虑把一个询问拆成log个覆盖线段树区间的询问，显然如果一个询问的左端点小于区间左端点，右端点大于区间右端点，那这询问没用了。</p>
+<p>考虑差分，一个操作就变成了给两个点异或1。一种方法有贡献的条件是区间中有1，不好算。所以我们可以算区间异或成全0的方案数。</p>
+<p>把一个操作抽象成在两个点中间连一条边，显然如果两个端点都不在区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>内，这条边就是无效的。</p>
+<p>区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>能异或成全0当且仅当这个区间在一个联通块中。我们又知道n-1条边可以联通n个点，那剩下的边随便取，反正树边都能把点异或回去。</p>
+<p>（换句话说，把边看作方程左边的未知数，把点上的数看成右边的数。这样就是去解一个01异或方程组。非树边怎么取值树边都有唯一解）</p>
+<p>区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>能异或出全1当且仅当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>在同一联通块中，方案数和异或出全0的一样。</p>
+<p>然后就是一个普通的并查集维护联通块了。</p>
+<p>这题卡常，所以我把插入和算贡献一起写了。</p>
+<p>代码:</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define N 600005
+#define lson l,mid,o&lt;&lt;1
+#define rson mid+1,r,o&lt;&lt;1|1
+#define ll long long
+#define mod 998244353
+using namespace std;
+
+struct qwq{ int l,r; };
+vector&lt;qwq&gt; a[N&lt;&lt;2];
+int fa[N],q;
+ll pw[N],ans=0;
+
+inline void rd(int &amp;x){
+	int y=0;char c=getchar();
+	while(c&lt;'0' || c&gt;'9') c=getchar();
+	while(c&gt;='0' &amp;&amp; c&lt;='9') y=y*10+c-'0',c=getchar();
+	x=y;
+}
+int find(int x){ return fa[x]==x?x:fa[x]=find(fa[x]); }
+void merge(int x,int y){
+	int u=find(x),v=find(y);
+	if(u&gt;v) swap(u,v);
+	fa[v]=u;
+}
+void solve(int l,int r,int o){
+	if(l==r||a[o].size()==0) return;
+	int cnt=0;ll tmp;int mid=(l+r)&gt;&gt;1,len=r-l+2;
+	for(int i=1;i&lt;=len;++i) fa[i]=i;
+	for(int i=0;i&lt;a[o].size();++i){
+		qwq tmp=a[o][i];
+		if(tmp.l&lt;l &amp;&amp; tmp.r&gt;r) continue;
+		merge(max(tmp.l,l)-l+1,min(tmp.r,r)-l+2);
+		if(tmp.l&lt;=mid) a[o&lt;&lt;1].push_back(tmp);
+		if(tmp.r&gt;mid) a[o&lt;&lt;1|1].push_back(tmp);
+	}
+	for(int i=1;i&lt;=len;++i) cnt+=(fa[i]==i);
+	(find(1)==find(len))?tmp=pw[q-(r-l+1)+cnt]:tmp=pw[q-(r-l+1)+cnt-1];
+	(ans+=pw[q])%=mod,(ans-=tmp)%=mod,(ans+=mod)%=mod;
+	solve(lson),solve(rson);
+}
+
+int main(){
+	int n,x,y;
+	rd(n),rd(q);
+	pw[0]=1;
+	for(int i=1;i&lt;=q+1;++i) pw[i]=(pw[i-1]+pw[i-1])%mod;	
+	for(int i=1;i&lt;=q;++i){
+		rd(x),rd(y),x++,y++;
+		a[1].push_back((qwq){x,y});
+	}
+	solve(1,n,1);
+	printf(&quot;%lld&quot;,ans);
+}
+
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://clf02z.coding-pages.com/post/pb-de-yi-xie-shen-ti/">
+              <h3 class="post-title">
+                下一篇：PB的一些神题
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">删库跑路之后留下来的。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
