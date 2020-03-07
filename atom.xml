@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clf02z.coding-pages.com</id>
-    <title>名神龙二の博客</title>
-    <updated>2020-03-06T07:37:23.356Z</updated>
+    <title>名神龙二の存档点</title>
+    <updated>2020-03-07T03:24:01.105Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://clf02z.coding-pages.com"/>
     <link rel="self" href="https://clf02z.coding-pages.com/atom.xml"/>
-    <subtitle>删库跑路之后留下来的。</subtitle>
+    <subtitle>删库跑路之后留下来的（自认为）有点用的文章。</subtitle>
     <logo>https://clf02z.coding-pages.com/images/avatar.png</logo>
     <icon>https://clf02z.coding-pages.com/favicon.ico</icon>
-    <rights>All rights reserved 2020, 名神龙二の博客</rights>
+    <rights>All rights reserved 2020, 名神龙二の存档点</rights>
     <entry>
         <title type="html"><![CDATA[【学习笔记】斯特林数]]></title>
         <id>https://clf02z.coding-pages.com/post/xue-xi-bi-ji-si-te-lin-shu/</id>
