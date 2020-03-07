@@ -1,449 +1,448 @@
 <html>
-  <head>
-    
-<meta charset="utf-8" >
-
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>名神龙二の存档点</title>
-<meta name="description" content="删库跑路之后留下来的（自认为）有点用的文章。">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583551439378">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://clf02z.coding-pages.com/favicon.ico?v=1583551542427">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://clf02z.coding-pages.com/styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://clf02z.coding-pages.com">
-        <img class="avatar" src="https://clf02z.coding-pages.com/images/avatar.png?v=1583551439378" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://clf02z.coding-pages.com">
-        <h1 class="site-title">名神龙二の存档点</h1>
-      </a>
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            名神龙二の存档点
+        </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
     </div>
-  </div>
-</div>
+</nav>
 
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
-      
         
-          <a href="/" class="menu purple-link">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="menu purple-link">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="menu purple-link">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="menu purple-link">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-</transition>
-
-
-        <div class="content-container">
-          
-          
 
 <div class="archives-container">
-  
-    <h2 class="year">2020</h2>
     
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-si-te-lin-shu/">
-            <h2 class="post-title">
-              【学习笔记】斯特林数
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
+        <h2 class="year gt-c-cotent-color-first">2020</h2>
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-si-te-lin-shu/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【学习笔记】斯特林数
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【树形dp/启发式合并】AGC007E
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【找规律/构造+记忆化搜索】洛谷5362 [SDOI2019]连续子序列
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【高斯消元】SPOJ9534 JZPLIT - Turn on the lights
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【线段树维护差分+爆炸恶心的合并】洛谷P4243 等差数列
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-hou-zhui-shu-zu/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【学习笔记】后缀数组
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/201901013-ce-shi/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            201901013测试
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/20190402-xun-lian/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            20190402训练
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/20190123-ce-shi-ti-jie/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            20190123测试题解
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/sao-miao-xian-luo-gu-p3268-yuan-de-yi-huo-bing/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【扫描线】洛谷P3268 圆的异或并
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/bo-yi-lun-agc002e-candy-piles/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【博弈论】AGC002E Candy Piles
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/loj510-bei-xiao-men-wai-de-hui-yi-zhao-xing-zhi-bei-zeng-xian-duan-shu/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【找性质+倍增+线段树】LOJ#510 北校门外的回忆
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/sb-cuo-wu-he-ji/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            SB错误合集
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/hdu4625-jzptreesi-te-lin-shu-dp/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【斯特林数+dp】hdu4625 JZPTREE
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d2t3/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            正睿OI 2019 D2T3
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d4t3/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            正睿OI 2019 D4T3
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d7t1/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            正睿OI 2019 D7T1
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d3t3/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            正睿OI 2019 D3T3
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/pb-de-yi-xie-shen-ti/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            PB的一些神题
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/qiao-miao-zhuan-hua-er-fen-da-an-agc040d/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【巧妙转化+二分答案】AGC040D
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/20191106-ce-shi/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            20191106测试
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-zui-xiao-hui-wen-fen-jie/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【学习笔记】最小回文分解
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/er-fen-biao-ji-yong-jiu-hua-zhu-xi-shu-loj6100/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【二分+标记永久化主席树】LOJ#6100
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zroi2020-sheng-xuan-shi-lian-ce-day4/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            ZROI2020省选失恋测Day4
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/zroi2020-shi-lian-ce-day3t3/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            ZROI2020失恋测Day3T3
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-04&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【性质分析+数位DP】CF750G New Year and Binary Tree Paths
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-04&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            一些很妙的idea/被教做人的trick
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-04&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【平面曼哈顿距离最小生成树】GFOJ#2056
+                        </div>
+                    </a>
+                </article>
+            
+        
+            
+                <article class="post">
+                    <a href="https://clf02z.coding-pages.com/post/mo-dui-bitset-luo-gu-p4688/">
+                        <div class="post-title gt-c-content-color-first">
+                            <small><b>2020-03-04&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
+                            【莫队+bitset】洛谷P4688
+                        </div>
+                    </a>
+                </article>
+            
+        
     
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/">
-            <h2 class="post-title">
-              【树形dp/启发式合并】AGC007E
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
+</div>
+
+        <div class="pagination-container">
     
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/">
-            <h2 class="post-title">
-              【找规律/构造+记忆化搜索】洛谷5362 [SDOI2019]连续子序列
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
     
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/">
-            <h2 class="post-title">
-              【高斯消元】SPOJ9534 JZPLIT - Turn on the lights
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/">
-            <h2 class="post-title">
-              【线段树维护差分+爆炸恶心的合并】洛谷P4243 等差数列
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-hou-zhui-shu-zu/">
-            <h2 class="post-title">
-              【学习笔记】后缀数组
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/201901013-ce-shi/">
-            <h2 class="post-title">
-              201901013测试
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/20190402-xun-lian/">
-            <h2 class="post-title">
-              20190402训练
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/20190123-ce-shi-ti-jie/">
-            <h2 class="post-title">
-              20190123测试题解
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/sao-miao-xian-luo-gu-p3268-yuan-de-yi-huo-bing/">
-            <h2 class="post-title">
-              【扫描线】洛谷P3268 圆的异或并
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/bo-yi-lun-agc002e-candy-piles/">
-            <h2 class="post-title">
-              【博弈论】AGC002E Candy Piles
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/loj510-bei-xiao-men-wai-de-hui-yi-zhao-xing-zhi-bei-zeng-xian-duan-shu/">
-            <h2 class="post-title">
-              【找性质+倍增+线段树】LOJ#510 北校门外的回忆
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/sb-cuo-wu-he-ji/">
-            <h2 class="post-title">
-              SB错误合集
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/hdu4625-jzptreesi-te-lin-shu-dp/">
-            <h2 class="post-title">
-              【斯特林数+dp】hdu4625 JZPTREE
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d2t3/">
-            <h2 class="post-title">
-              正睿OI 2019 D2T3
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d4t3/">
-            <h2 class="post-title">
-              正睿OI 2019 D4T3
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d7t1/">
-            <h2 class="post-title">
-              正睿OI 2019 D7T1
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zheng-rui-oi-2019-d3t3/">
-            <h2 class="post-title">
-              正睿OI 2019 D3T3
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/pb-de-yi-xie-shen-ti/">
-            <h2 class="post-title">
-              PB的一些神题
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/qiao-miao-zhuan-hua-er-fen-da-an-agc040d/">
-            <h2 class="post-title">
-              【巧妙转化+二分答案】AGC040D
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/20191106-ce-shi/">
-            <h2 class="post-title">
-              20191106测试
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-zui-xiao-hui-wen-fen-jie/">
-            <h2 class="post-title">
-              【学习笔记】最小回文分解
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/er-fen-biao-ji-yong-jiu-hua-zhu-xi-shu-loj6100/">
-            <h2 class="post-title">
-              【二分+标记永久化主席树】LOJ#6100
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zroi2020-sheng-xuan-shi-lian-ce-day4/">
-            <h2 class="post-title">
-              ZROI2020省选失恋测Day4
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/zroi2020-shi-lian-ce-day3t3/">
-            <h2 class="post-title">
-              ZROI2020失恋测Day3T3
-              <small>2020-03-06</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/xing-zhi-fen-xi-shu-wei-dp-cf750g-new-year-and-binary-tree-paths/">
-            <h2 class="post-title">
-              【性质分析+数位DP】CF750G New Year and Binary Tree Paths
-              <small>2020-03-04</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/yi-xie-hen-miao-de-ideabei-jiao-zuo-ren-de-trick/">
-            <h2 class="post-title">
-              一些很妙的idea/被教做人的trick
-              <small>2020-03-04</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/gfoj2056ping-mian-man-ha-dun-ju-chi-zui-xiao-sheng-cheng-shu/">
-            <h2 class="post-title">
-              【平面曼哈顿距离最小生成树】GFOJ#2056
-              <small>2020-03-04</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://clf02z.coding-pages.com/post/mo-dui-bitset-luo-gu-p4688/">
-            <h2 class="post-title">
-              【莫队+bitset】洛谷P4688
-              <small>2020-03-04</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-  
 </div>
 
 
-        </div>
-
-        <div class="site-footer">
-  <div class="slogan">删库跑路之后留下来的（自认为）有点用的文章。</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">删库跑路之后留下来的（自认为）有点用的文章。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a href="https://clf02z.coding-pages.com/atom.xml" target="_blank">RSS</a>
 </div>
 
-
-      </div>
-      <script type="application/javascript">
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+<script>
+    hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
     </div>
-  </body>
+</div>
+</body>
 </html>
