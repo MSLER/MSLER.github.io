@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://clf02z.coding-pages.com</id>
+    <id>https://msler.github.io</id>
     <title>名神龙二の存档点</title>
-    <updated>2020-03-10T11:52:24.789Z</updated>
+    <updated>2020-04-17T15:23:47.093Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://clf02z.coding-pages.com"/>
-    <link rel="self" href="https://clf02z.coding-pages.com/atom.xml"/>
+    <link rel="alternate" href="https://msler.github.io"/>
+    <link rel="self" href="https://msler.github.io/atom.xml"/>
     <subtitle>删库跑路之后留下来的（自认为）有点用的文章。</subtitle>
-    <logo>https://clf02z.coding-pages.com/images/avatar.png</logo>
-    <icon>https://clf02z.coding-pages.com/favicon.ico</icon>
+    <logo>https://msler.github.io/images/avatar.png</logo>
+    <icon>https://msler.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 名神龙二の存档点</rights>
     <entry>
         <title type="html"><![CDATA[ZROI2020三月集训讲课DP]]></title>
-        <id>https://clf02z.coding-pages.com/post/zroi2020-san-yue-ji-xun-jiang-ke-dp/</id>
-        <link href="https://clf02z.coding-pages.com/post/zroi2020-san-yue-ji-xun-jiang-ke-dp/">
+        <id>https://msler.github.io/post/zroi2020-san-yue-ji-xun-jiang-ke-dp/</id>
+        <link href="https://msler.github.io/post/zroi2020-san-yue-ji-xun-jiang-ke-dp/">
         </link>
         <updated>2020-03-10T04:13:24.000Z</updated>
         <content type="html"><![CDATA[<p>别问我上午干嘛去了……问就是十分后悔……</p>
@@ -92,8 +92,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[【学习笔记】斯特林数]]></title>
-        <id>https://clf02z.coding-pages.com/post/xue-xi-bi-ji-si-te-lin-shu/</id>
-        <link href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-si-te-lin-shu/">
+        <id>https://msler.github.io/post/xue-xi-bi-ji-si-te-lin-shu/</id>
+        <link href="https://msler.github.io/post/xue-xi-bi-ji-si-te-lin-shu/">
         </link>
         <updated>2020-03-06T07:34:34.000Z</updated>
         <content type="html"><![CDATA[<h2 id="一些符号表示">一些符号表示</h2>
@@ -142,8 +142,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[【树形dp/启发式合并】AGC007E]]></title>
-        <id>https://clf02z.coding-pages.com/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/</id>
-        <link href="https://clf02z.coding-pages.com/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/">
+        <id>https://msler.github.io/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/</id>
+        <link href="https://msler.github.io/post/shu-xing-dpqi-fa-shi-he-bing-agc007e/">
         </link>
         <updated>2020-03-06T07:33:42.000Z</updated>
         <content type="html"><![CDATA[<p>考场上把这题丢去翻译了一下，然后自闭了……</p>
@@ -235,8 +235,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[【找规律/构造+记忆化搜索】洛谷5362 [SDOI2019]连续子序列]]></title>
-        <id>https://clf02z.coding-pages.com/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/</id>
-        <link href="https://clf02z.coding-pages.com/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/">
+        <id>https://msler.github.io/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/</id>
+        <link href="https://msler.github.io/post/zhao-gui-lu-gou-zao-ji-yi-hua-sou-suo-luo-gu-5362-sdoi2019lian-xu-zi-xu-lie/">
         </link>
         <updated>2020-03-06T07:32:50.000Z</updated>
         <content type="html"><![CDATA[<p>神仙构造</p>
@@ -312,8 +312,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[【高斯消元】SPOJ9534 JZPLIT - Turn on the lights]]></title>
-        <id>https://clf02z.coding-pages.com/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/</id>
-        <link href="https://clf02z.coding-pages.com/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/">
+        <id>https://msler.github.io/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/</id>
+        <link href="https://msler.github.io/post/gao-si-xiao-yuan-spoj9534-jzplit-turn-on-the-lights/">
         </link>
         <updated>2020-03-06T07:31:58.000Z</updated>
         <content type="html"><![CDATA[<p>SPOJ卡常也太可怕了吧……<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mo>(</mo><mfrac><mrow><mi>n</mi><mo>+</mo><mi>m</mi></mrow><mn>32</mn></mfrac><msup><mo>)</mo><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O((\frac{n+m}{32})^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1591079999999998em;vertical-align:-0.345em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.802331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>卡100ms，这都什么人啊.jpg</p>
@@ -412,8 +412,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[【线段树维护差分+爆炸恶心的合并】洛谷P4243 等差数列]]></title>
-        <id>https://clf02z.coding-pages.com/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/</id>
-        <link href="https://clf02z.coding-pages.com/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/">
+        <id>https://msler.github.io/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/</id>
+        <link href="https://msler.github.io/post/xian-duan-shu-wei-hu-chai-fen-bao-zha-e-xin-de-he-bing-luo-gu-p4243-deng-chai-shu-lie/">
         </link>
         <updated>2020-03-06T07:18:38.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.org/problemnew/show/P4243">题面</a></p>
@@ -542,8 +542,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[【学习笔记】后缀数组]]></title>
-        <id>https://clf02z.coding-pages.com/post/xue-xi-bi-ji-hou-zhui-shu-zu/</id>
-        <link href="https://clf02z.coding-pages.com/post/xue-xi-bi-ji-hou-zhui-shu-zu/">
+        <id>https://msler.github.io/post/xue-xi-bi-ji-hou-zhui-shu-zu/</id>
+        <link href="https://msler.github.io/post/xue-xi-bi-ji-hou-zhui-shu-zu/">
         </link>
         <updated>2020-03-06T07:16:15.000Z</updated>
         <content type="html"><![CDATA[<h1 id="1-一些定义">1、一些定义</h1>
@@ -644,8 +644,8 @@ void SufSort(){
     </entry>
     <entry>
         <title type="html"><![CDATA[201901013测试]]></title>
-        <id>https://clf02z.coding-pages.com/post/201901013-ce-shi/</id>
-        <link href="https://clf02z.coding-pages.com/post/201901013-ce-shi/">
+        <id>https://msler.github.io/post/201901013-ce-shi/</id>
+        <link href="https://msler.github.io/post/201901013-ce-shi/">
         </link>
         <updated>2020-03-06T07:10:28.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://files.cnblogs.com/files/PsychicBoom/day7.ppt">题面</a></p>
@@ -895,8 +895,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[20190402训练]]></title>
-        <id>https://clf02z.coding-pages.com/post/20190402-xun-lian/</id>
-        <link href="https://clf02z.coding-pages.com/post/20190402-xun-lian/">
+        <id>https://msler.github.io/post/20190402-xun-lian/</id>
+        <link href="https://msler.github.io/post/20190402-xun-lian/">
         </link>
         <updated>2020-03-06T07:06:52.000Z</updated>
         <content type="html"><![CDATA[<h1 id="t1">T1</h1>
@@ -1052,8 +1052,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[20190123测试题解]]></title>
-        <id>https://clf02z.coding-pages.com/post/20190123-ce-shi-ti-jie/</id>
-        <link href="https://clf02z.coding-pages.com/post/20190123-ce-shi-ti-jie/">
+        <id>https://msler.github.io/post/20190123-ce-shi-ti-jie/</id>
+        <link href="https://msler.github.io/post/20190123-ce-shi-ti-jie/">
         </link>
         <updated>2020-03-06T07:05:50.000Z</updated>
         <content type="html"><![CDATA[<h4 id="t1">T1</h4>
